@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%#qut06*mrow#1vkae0+h$zi&qjtf@jhn3hxd#*d=r3y8&^-wc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '0.0.0.0', '127.0.0.1', ]
 
 
 # Application definition
@@ -58,9 +58,9 @@ ROOT_URLCONF = 'edwaliro.urls'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:3000',
+# ]
 
 TEMPLATES = [
     {
