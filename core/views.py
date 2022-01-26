@@ -43,9 +43,14 @@ def roles(request):
     serializers = RoleSerializer(roles, many=True)
     return Response(serializers.data)
 
-# Roles view
+# Gender view
 @api_view(['GET',])
 def gender(request):
     gender = Gender.objects.all()
     serializers = GenderSerializer(gender, many=True)
     return Response(serializers.data)
+
+# Token Generator view
+@api_view(['GET'])
+def get_token(request):
+    return Response({"token": "1234567890"})
