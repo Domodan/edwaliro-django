@@ -32,14 +32,14 @@
 #########
 
 # pull official base image
-# FROM python:3.9.6-alpine
-FROM python:3.8-slim-buster
+FROM python:3.9.6-alpine
+# FROM python:3.8-slim-buster
 
 # create directory for the app user
 RUN mkdir -p /home/app
 
 # create the app user
-RUN usergroup -S app && useradd -S app -G app
+RUN addgroup -S app && adduser -S app -G app
 
 # create the appropriate directories
 ENV HOME=/home/app
