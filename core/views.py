@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -35,6 +35,18 @@ class PatientDetail(generics.RetrieveUpdateDestroyAPIView):
 # Index test page view
 def index(request):
     return JsonResponse("Hello, welcome here!", safe=False)
+
+# Login view
+@api_view(['POST',])
+def login(request):
+    email = request.data['email']
+    phone_number = request.data['phone_number']
+    try:
+        user = Doctor.objects.filter(email=email, phone_number=phone_number)
+    except:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    print(user)
+    return Response(status.HTTP_200_OK)
 
 # Roles view
 @api_view(['GET',])
